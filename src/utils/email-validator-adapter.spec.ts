@@ -1,6 +1,6 @@
-import { EmailValidatorAdapter } from './email-validator'
-import validator from 'validator'
+import { EmailValidatorAdapter } from './email-validator-adapter'
 import { EmailValidator } from '../presentation/protocols'
+import validator from 'validator'
 
 jest.mock('validator', () => ({
   isEmail (): boolean {
