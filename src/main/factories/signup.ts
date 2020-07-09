@@ -1,4 +1,4 @@
-import { SignUpController } from '../../presentation/controllers/signup'
+import { SignUpController } from '../../presentation/controllers/signup/signup'
 import { Controller } from '../../presentation/protocols'
 import { EmailValidatorAdapter } from '../../utils/email-validator-adapter'
 import { DbAddAccount } from '../../data/usecases/db-account/db-add-account'
