@@ -1,7 +1,7 @@
 import { SignUpController } from './signup'
-import { InvalidParamError, ServerError } from '../../errors'
+import { ServerError } from '../../errors'
 import { EmailValidator, HttpRequest, AddAccountModel, AddAccount, AccountModel, Validation } from './signup-protocols'
-import { ok, serverError, badRequest } from '../../helpers/http-helper'
+import { ok, serverError } from '../../helpers/http-helper'
 
 interface SutTypes {
   sut: SignUpController
@@ -67,20 +67,6 @@ const makeSut = (): SutTypes => {
 }
 
 describe('SignUp Controller', () => {
-  test('Should return 400 if password not match with passwordConfirmation', async () => {
-    const { sut } = makeSut()
-    const httpRequest = {
-      body: {
-        name: 'any_name',
-        email: 'any_email@mail.com',
-        password: 'any_password',
-        passwordConfirmation: 'other_password'
-      }
-    }
-    const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse).toEqual(badRequest(new InvalidParamError('passwordConfirmation')))
-  })
-
   test('Should call EmailValidator with correct email', async () => {
     const { sut, emailValidatorStub } = makeSut()
 
