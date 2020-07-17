@@ -1,6 +1,6 @@
 import { EmailValidation } from './email-validation'
 import { EmailValidator } from '../../protocols'
-import { Validation } from './validation'
+import { Validation } from '../../protocols/validation'
 
 interface SutTypes {
   sut: Validation
